@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":278:{a:2:{s:7:"defects";a:3:{s:18:"StackTest::testSum";i:3;s:26:"SetRolesTest::testSetRoles";i:3;s:31:"SetRolesTest::testSetRoles_Set0";i:3;}s:5:"times";a:3:{s:18:"StackTest::testSum";d:0.002;s:26:"SetRolesTest::testSetRoles";d:0.002;s:31:"SetRolesTest::testSetRoles_Set0";d:0.002;}}}

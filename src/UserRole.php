@@ -159,4 +159,15 @@ class UserRole
       return $allSubOrdinates;
     }
   }
+
+  /**
+   * Get all the roles. For testing purpose.
+   * @return array
+   */
+  public function getRoles(): array
+  {
+    return array_map(function ($role) {
+      return $role->getRoleInfo();
+    }, $this->roles);
+  }
 }

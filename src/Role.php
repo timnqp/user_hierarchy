@@ -77,4 +77,18 @@ class Role
   {
     return $this->children;
   }
+
+  /**
+   * Access Information. Used for printing role info for testing.
+   * @return array
+   */
+  public function getRoleInfo(): array
+  {
+    return [
+      'Id' => $this->id,
+      'Name' => $this->name,
+      'Parent' => $this->parent,
+      'Children' => $this->children
+    ];
+  }
 }
