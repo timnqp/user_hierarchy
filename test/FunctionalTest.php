@@ -3,9 +3,9 @@
 use PHPUnit\Framework\TestCase;
 
 require dirname(__DIR__, 1) . '/src/UserRole.php';
-require 'Seeder.php';
+require dirname(__DIR__, 1) . '/seed/Seeder.php';
 
-final class SetRolesTest extends TestCase
+final class FunctionalTest extends TestCase
 {
   public function testSetRoles_Set0(): void
   {
@@ -61,6 +61,44 @@ final class SetRolesTest extends TestCase
         'Children' => array()
       ),
     );
+
+    $this->assertEqualsCanonicalizing($expected, $actual);
+  }
+
+  public function testSetUsers_Set0(): void
+  {
+    $users = Seeder::getUsersDataSet(0);
+    $userRole = new UserRole();
+    $userRole->setUsers($users);
+    $actual = $userRole->getUsers();
+
+    $expected = [
+      [
+        'Id' => 1,
+        'Name' => 'Adam Admin',
+        'Role' => 1
+      ],
+      [
+        'Id' => 2,
+        'Name' => 'Emily Employee',
+        'Role' => 4
+      ],
+      [
+        'Id' => 3,
+        'Name' => 'Sam Supervisor',
+        'Role' => 3
+      ],
+      [
+        'Id' => 4,
+        'Name' => 'Mary Manager',
+        'Role' => 2
+      ],
+      [
+        'Id' => 5,
+        'Name' => 'Steve Trainer',
+        'Role' => 5
+      ]
+    ];
 
     $this->assertEqualsCanonicalizing($expected, $actual);
   }

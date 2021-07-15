@@ -1,6 +1,6 @@
 <?php
 require 'src/UserRole.php';
-require 'test/Seeder.php';
+require 'seed/Seeder.php';
 
 // Data set. Edit the $setId value to change the data set.
 $setId = 0;

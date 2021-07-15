@@ -1,7 +1,7 @@
 <?php
 
-require 'src/Role.php';
-require 'src/User.php';
+require 'Role.php';
+require 'User.php';
 
 class UserRole
 {
@@ -169,5 +169,16 @@ class UserRole
     return array_map(function ($role) {
       return $role->getRoleInfo();
     }, $this->roles);
+  }
+
+  /**
+   * Get all the users. For testing purpose.
+   * @return array
+   */
+  public function getUsers(): array
+  {
+    return array_map(function ($user) {
+      return $user->getUserInfo();
+    }, $this->users);
   }
 }
