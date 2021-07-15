@@ -8,7 +8,7 @@
 sudo apt update && sudo apt install php
 ```
 
-2. For unit testinng, install PHPUnit testing framework if not installed yet:
+2. For unit testing, install PHPUnit testing framework if not installed yet:
 
 ```
 sudo apt-get install -y phpunit
