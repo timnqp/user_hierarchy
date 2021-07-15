@@ -47,7 +47,7 @@ class UserRole
         // This role object might be pre-created before when one of its child was created. (**)
         if (
           $this->roles[$role['Id']]->getName() === null &&
-          $this->roles[$role['id']]->getParent() === null
+          $this->roles[$role['id']]->getParent() === -1
         ) {
           // Update name & parent accordingly.
           $this->roles[$role['Id']]->setName($role['Name']);

@@ -16,7 +16,7 @@ class Role
    * @param string $name nullable
    * @param int $parent nullable
    */
-  public function __construct(int $id, string $name = null, int $parent = null)
+  public function __construct(int $id, string $name = null, int $parent = -1)
   {
     $this->id = $id;
     $this->name = $name;
