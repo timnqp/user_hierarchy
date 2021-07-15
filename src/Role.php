@@ -9,6 +9,7 @@ class Role
   private $name; // Role name
   private $parent; // Role ID of parent role
   private $children; // Role IDs of child roles
+  private $users; // Users under this role
 
   /**
    * Constructor
@@ -22,6 +23,7 @@ class Role
     $this->name = $name;
     $this->parent = $parent;
     $this->children = [];
+    $this->users = [];
   }
 
   /**
@@ -76,6 +78,24 @@ class Role
   public function getChildren(): array
   {
     return $this->children;
+  }
+
+  /**
+   * Add child ID to the child roles' ID list
+   * @param int $id
+   */
+  public function addUser(int $id): void
+  {
+    $this->users[] = $id;
+  }
+
+  /**
+   * Get all IDs of the child roles
+   * @return array
+   */
+  public function getUsers(): array
+  {
+    return $this->users;
   }
 
   /**

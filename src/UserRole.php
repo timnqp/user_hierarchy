@@ -10,7 +10,6 @@ class UserRole
    */
   private $roles; // The hash table to keep track of Role objects
   private $users; // The hash table to keep track of User objects
-  private $usersOfRoles; // The Hash table to keep track which users are under a role
 
   /**
    * Constructor
@@ -19,7 +18,6 @@ class UserRole
   {
     $this->roles = [];
     $this->users = [];
-    $this->usersOfRoles = [];
   }
 
   /**
@@ -90,12 +88,9 @@ class UserRole
 
       // The User-Role relationship hash table should keep track of ..
       // .. which users are under this role.
-      // If the index $user['Role'] wasn't existed, create one.
-      if (!isset($this->usersOfRoles[$user['Role']])) {
-        $this->usersOfRoles[$user['Role']] = [];
+      if (isset($this->roles[$user['Role']])) {
+        $this->roles[$user['Role']]->addUser($user['Id']);
       }
-      // Then add the role into the User-Role relationship.
-      $this->usersOfRoles[$user['Role']][] = $user['Id'];
     }
   }
 
@@ -146,7 +141,7 @@ class UserRole
       foreach ($childRoles as $childRole) {
 
         // Get all users of this child role
-        $users = isset($this->usersOfRoles[$childRole]) ? $this->usersOfRoles[$childRole] : null;
+        $users = isset($this->roles[$childRole]) ? $this->roles[$childRole]->getUsers() : null;
 
         // Double check if users of this child role exist
         if (isset($users) && !empty($users)) {
