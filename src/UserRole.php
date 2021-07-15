@@ -102,10 +102,10 @@ class UserRole
   /**
    * Main logic to query the Subordinates from a user Id
    * @param string $id
-   * @param boolean $test Default to false
+   * @param boolean $forTesting Default to false
    * @return mixed
    */
-  public function getSubOrdinates(int $id, bool $test = false)
+  public function getSubOrdinates(int $id, bool $forTesting = false)
   {
     if (!isset($this->users[$id])) {
       throw new Exception("User $id not existed!");
@@ -119,7 +119,7 @@ class UserRole
     // .. all the possible roles is O(r), with 'r' is the number of roles.
     // The complexity to all the user are O(u), with 'u is the number of users.
     // So the total time complexity is O(r + u)
-    if (!$test)
+    if (!$forTesting)
       return json_encode($this->_getSubOrdinatesFromRoleId($userRoleID));
     else
       return $this->_getSubOrdinatesFromRoleId($userRoleID);
