@@ -45,7 +45,7 @@ cd <your_preferred_folder_name>/test
 2. Run the unit tests
 
 ```
-phpunit test/FunctionalTest.php
+phpunit FunctionalTest.php
 ```
 
 ## View Source Code
