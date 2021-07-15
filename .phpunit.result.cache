@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":242:{a:2:{s:7:"defects";a:1:{s:40:"FunctionalTest::testGetSubordinates_Set0";i:4;}s:5:"times";a:3:{s:33:"FunctionalTest::testSetRoles_Set0";d:0.002;s:33:"FunctionalTest::testSetUsers_Set0";d:0;s:40:"FunctionalTest::testGetSubordinates_Set0";d:0;}}}

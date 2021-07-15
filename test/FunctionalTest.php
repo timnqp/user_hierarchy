@@ -102,4 +102,28 @@ final class FunctionalTest extends TestCase
 
     $this->assertEqualsCanonicalizing($expected, $actual);
   }
+
+  public function testGetSubordinates_Set0(): void
+  {
+    $roles = Seeder::getRolesDataSet(0);
+    $users = Seeder::getUsersDataSet(0);
+    $userRole = new UserRole();
+    $userRole->setRoles($roles);
+    $userRole->setUsers($users);
+
+    $actual3 = $userRole->getSubOrdinates(3, true);
+    $expected3 = [
+      [
+        'Id' => 2,
+        'Name' => 'Emily Employee',
+        'Role' => 4
+      ],
+      [
+        'Id' => 5,
+        'Name' => 'Steve Trainer',
+        'Role' => 5
+      ]
+    ];
+    $this->assertEqualsCanonicalizing($expected3, $actual3);
+  }
 }

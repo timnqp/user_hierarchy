@@ -102,9 +102,10 @@ class UserRole
   /**
    * Main logic to query the Subordinates from a user Id
    * @param string $id
-   * @return string
+   * @param boolean $test Default to false
+   * @return mixed
    */
-  public function getSubOrdinates(int $id): string
+  public function getSubOrdinates(int $id, bool $test = false)
   {
     if (!isset($this->users[$id])) {
       throw new Exception("User $id not existed!");
@@ -114,7 +115,10 @@ class UserRole
     $userRoleID = $userObj->getRole();
 
     // Recursion call through all the child roles to get all the subordinates
-    return json_encode($this->_getSubOrdinatesFromRoleId($userRoleID));
+    if (!$test)
+      return json_encode($this->_getSubOrdinatesFromRoleId($userRoleID));
+    else
+      return $this->_getSubOrdinatesFromRoleId($userRoleID);
   }
 
   /**
