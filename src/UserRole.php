@@ -74,7 +74,7 @@ class UserRole
    * @param array $users
    */
   public function setUsers(array $users): void
-  {
+  {    
     if (empty($users)) {
       throw new Exception('There is no user');
     }
@@ -142,7 +142,7 @@ class UserRole
       foreach ($childRoles as $childRole) {
 
         // Get all users of this child role
-        $users = $this->usersOfRoles[$childRole];
+        $users = isset($this->usersOfRoles[$childRole]) ? $this->usersOfRoles[$childRole] : null;
 
         // Double check if users of this child role exist
         if (isset($users) && !empty($users)) {
