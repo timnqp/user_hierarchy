@@ -114,7 +114,11 @@ class UserRole
     $userObj = $this->users[$id];
     $userRoleID = $userObj->getRole();
 
-    // Recursion call through all the child roles to get all the subordinates
+    // Recursion call through all the child roles to get all the subordinates.
+    // Since the Roles are stored in hash table, the time complexity to walk through ..
+    // .. all the possible roles is O(r), with 'r' is the number of roles.
+    // The complexity to all the user are O(u), with 'u is the number of users.
+    // So the total time complexity is O(r + u)
     if (!$test)
       return json_encode($this->_getSubOrdinatesFromRoleId($userRoleID));
     else
