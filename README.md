@@ -1,3 +1,5 @@
+# INSTRUCTIONS
+
 ## Set Up
 
 1. In Linux environment, install PHP if not installed yet:
